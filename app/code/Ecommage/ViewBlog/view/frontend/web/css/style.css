@@ -1,0 +1,14 @@
+*{
+	
+}
+
+.show{
+	display:block;
+}
+.hidden{
+	display:none;
+}
+
+.nav-link a:hover{
+	color:#3333;
+}
