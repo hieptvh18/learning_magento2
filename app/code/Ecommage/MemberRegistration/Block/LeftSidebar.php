@@ -1,5 +1,5 @@
 <?php
-namespace Ecommage\ViewBlog\Block;
+namespace Ecommage\MemberRegistration\Block;
 class LeftSidebar extends \Magento\Framework\View\Element\Template
 {
 	protected function prepareLayout()

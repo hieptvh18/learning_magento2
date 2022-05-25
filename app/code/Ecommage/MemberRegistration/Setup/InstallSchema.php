@@ -1,7 +1,7 @@
 <?php
 
 // setup dung de create table in database
-namespace Ecommage\ViewBlog\Setup;
+namespace Ecommage\MemberRegistration\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
@@ -18,14 +18,16 @@ class InstallSchema implements InstallSchemaInterface
         // connect db
         $connection = $setup->getConnection();
 
-        $tableExit = $connection->getTableName('register_member');
+        $tableExit = $connection->getTableName('member_registration');
 
         if(!$connection->isTableExists($tableExit)){
             
                     $table = $connection->newTable($tableExit)->addColumn(
                         'id',Table::TYPE_INTEGER,null,['primary'=>true,'nullable'=>false,'identity'=>true])
                         ->addColumn(
-                            'fullname',Table::TYPE_TEXT,255,['nullable'=>false])
+                            'name',Table::TYPE_TEXT,255,['nullable'=>false])
+                        ->addColumn(
+                                'email',Table::TYPE_TEXT,255,['nullable'=>false])
                         ->setOption('charset','utf8');
             
                     // tao table

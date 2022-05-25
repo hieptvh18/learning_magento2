@@ -1,0 +1,17 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+ 
++ <table name="ecommage_helloworld_post" resource="sales" engine="innodb" comment="Ecommage Helloworld Post" >
++       <column xsi:type="int" name="post_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
++	<column xsi:type="text" name="name" nullable="false" comment="Post Name"/>
++	<column xsi:type="text" name="url_key" comment="Post URL Key"/>
++	<column xsi:type="text" name="post_content" comment="Post Content"/>
++	<column xsi:type="text" name="tags" comment="Post Tags"/>
++       <column xsi:type="int" name="status" padding="10" comment="Post Status"/>
++	<column xsi:type="text" name="featured_image" comment="Post Featured Image"/>
++	<column xsi:type="timestamp" name="created_at" on_update="false" defaul="CURRENT_TIMESTAMP" nullable="false" comment="Post Created At"/>
++       <constraint xsi:type="primary" referenceId="PRIMARY">
++           <column name="post_id"/>
++       </constraint>
++   </table>
+ 
+</schema>

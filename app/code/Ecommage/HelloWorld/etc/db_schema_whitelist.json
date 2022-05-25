@@ -1,0 +1,17 @@
+{
+    "ecommage_helloworld_post": {
+        "column": {
+            "post_id": true,
+            "name": true,
+            "url_key": true,
+            "post_content": true,
+            "tags": true,
+            "status": true,
+            "featured_image": true,
+            "created_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

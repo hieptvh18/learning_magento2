@@ -12,3 +12,11 @@
 .nav-link a:hover{
 	color:#3333;
 }
+
+.text-primary{
+	background	:blue;
+	color:white;
+}
+.form-group{
+	margin-bottom: 10px;
+}

@@ -2,16 +2,16 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
 
     <head>
-        <title>Blog </title>
+        <title>Register </title>
 
         <!-- nhung assets o head -->
-        <css src="Ecommage_ViewBlog::css/style.css"/>
-        <script src="Ecommage_ViewBlog::js/script.js"/>
+        <css src="Ecommage_MemberRegistration::css/style.css"/>
+        <script src="Ecommage_MemberRegistration::js/script.js"/>
     </head>
 
     <referenceContainer name="content">
 
-        <block class="Ecommage\ViewBlog\Block\LeftSidebar" name="viewblog_index_index" template="Ecommage_ViewBlog::left_sidebar.phtml" />
+        <block class="Ecommage\MemberRegistration\Block\LeftSidebar" name="MemberRegistration_index_index" template="Ecommage_MemberRegistration::left_sidebar.phtml" />
 
     </referenceContainer>
 

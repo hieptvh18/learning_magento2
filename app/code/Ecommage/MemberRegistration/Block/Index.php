@@ -1,5 +1,5 @@
 <?php
-namespace Ecommage\ViewBlog\Block;
+namespace Ecommage\MemberRegistration\Block;
 class Index extends \Magento\Framework\View\Element\Template
 {
 	protected function prepareLayout()
