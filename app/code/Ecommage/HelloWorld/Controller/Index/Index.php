@@ -24,12 +24,12 @@ class Index extends Action
     public function execute()
     {
         // login control and respone req->
-        //  $page = $this->_pageFactory->create();
-        //  return $page;
+          $page = $this->_pageFactory->create();
+          return $page;
 
         /**
          * test khoi tao model with _objectManger
-         * */ 
+         * */
         $post = $this->_objectManager->create('Ecommage\HelloWorld\Model\Post');
         // $post->addData([
         //     'name' => 'Bai post 2',

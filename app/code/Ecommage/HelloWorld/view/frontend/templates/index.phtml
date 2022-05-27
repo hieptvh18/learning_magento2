@@ -10,8 +10,14 @@
 </head>
 <body>
 	<div class="wrapper bg-pink p-3">
-		<h2>Hello Ecommage - The first module </h2>
+		<h2><?= $block->getTitle() ?> </h2>
+
+        <div style="color:blue;"></div>
+
+        <div style="color:red;"><?php foreach($block->getMyInfo() as $key=>$item){
+                    echo $key.': '.$item.'<br>';
+            }  ?></div>
 	</div>
-    
+
 </body>
 </html>
