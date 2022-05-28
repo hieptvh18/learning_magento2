@@ -11,14 +11,14 @@
 <body>
 	<div class="wrapper bg-pink p-3" style="background: #ccc; padding: 10px 20px;">
 		<h2>Form member registration </h2>
-       <form action="" method="post">
+       <form action="<?= $this->getUrl('memberregistration/post/post'); ?>" method="post">
            <div class="form-group">
                <input type="text" name="name" placeholder="Enter your name" class="form-control" required>
            </div>
            <div class="form-group">
                <input type="email" name="email" placeholder="Enter your email @" class="form-control" required>
            </div>
-           <button type="submit" class="text-primary">Sumit</button>
+           <button type="submit" class="text-primary">Submit</button>
        </form>
 	</div>
 

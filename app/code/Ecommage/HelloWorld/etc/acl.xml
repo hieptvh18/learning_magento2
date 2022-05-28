@@ -4,16 +4,16 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="Ecommage_HelloWorld::helloworld" title="Hello World" sortOrder="51">
-                    <resource id="Ecommage_HelloWorld::post" title="Posts" sortOrder="10"/>
-                    <resource id="Ecommage_HelloWorld::helloworld_configuration" title="Configuration" sortOrder="99" />
+                    <resource id="Ecommage_HelloWorld::manage" title="Manage" sortOrder="10"/>
+                    <resource id="Ecommage_HelloWorld::update" title="Edit" sortOrder="99" />
                 </resource>
-                <resource id="Magento_Backend::stores">
-                    <resource id="Magento_Backend::stores_settings">
-                        <resource id="Magento_Config::config">
-                            <resource id="Ecommage_HelloWorld::helloworld_config" title="Hello World"/>
-                        </resource>
-                    </resource>
-                </resource>
+<!--                <resource id="Magento_Backend::stores">-->
+<!--                    <resource id="Magento_Backend::stores_settings">-->
+<!--                        <resource id="Magento_Config::config">-->
+<!--                            <resource id="Ecommage_HelloWorld::helloworld_config" title="Hello World"/>-->
+<!--                        </resource>-->
+<!--                    </resource>-->
+<!--                </resource>-->
             </resource>
         </resources>
     </acl>

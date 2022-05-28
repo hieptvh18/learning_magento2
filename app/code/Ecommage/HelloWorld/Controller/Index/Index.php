@@ -24,8 +24,8 @@ class Index extends Action
     public function execute()
     {
         // login control and respone req->
-          $page = $this->_pageFactory->create();
-          return $page;
+//          $page = $this->_pageFactory->create();
+//          return $page;
 
         /**
          * test khoi tao model with _objectManger
@@ -37,7 +37,7 @@ class Index extends Action
         //     'post_content' => 'bla bla bla bla bla bla.............. this is post 2',
         //     'tags' => 'post',
         //     'status' => 0,
-        //     'featured_image' => 'image2.png',
+        //     'featured_image' => 'https://yt3.ggpht.com/ytc/AKedOLRyODozgkiPQuM8Ca7eZyxM8iOYR_MvXuxqQksOoQ=s900-c-k-c0x00ffffff-no-rj',
         // ]);
         // $post->save();
 
@@ -47,7 +47,7 @@ class Index extends Action
          * test get data
          */
 
-         $post = $post->load(1)->getData();
+         $post = $post->load(2)->getData();
          echo "<pre>";
          var_dump($post);die;
 
