@@ -1,0 +1,14 @@
+.container{
+    display: flex;
+    padding: 10px;
+}
+.sidebar{
+    width: 200px;
+    display: block;
+    list-style: 30px;
+}
+.content{
+    width: 100%;
+    background: #ccc;
+    padding: 10px;
+}

@@ -6,9 +6,9 @@
         </tab>
         <section id="helloworld" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
-            <label>Hello World</label>
-            <tab>ecommage</tab>
-            <resource>Ecommage_HelloWorld::helloworld</resource>
+            <label>Hello World </label>
+            <tab>ecommage</tab> <!-- node tab trong session la id tab cha , chi dinh thuoc ve tab nao-->
+            <resource>Ecommage_HelloWorld::helloworld</resource> <!-- resource xac dinh acl ma ng dung co de truy cap cau hinh nay -->
             <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>General Configuration</label>
                 <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">

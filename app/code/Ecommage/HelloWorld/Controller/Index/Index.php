@@ -10,7 +10,6 @@ use \Magento\Framework\Stdlib\DateTime\DateTimeFactory;
 class Index extends Action
 {
     protected $_pageFactory;
-    protected $_postFactory;
 
     public function __construct(
         Context $context,
@@ -24,8 +23,8 @@ class Index extends Action
     public function execute()
     {
         // login control and respone req->
-//          $page = $this->_pageFactory->create();
-//          return $page;
+          $page = $this->_pageFactory->create();
+          return $page;
 
         /**
          * test khoi tao model with _objectManger

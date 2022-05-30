@@ -1,0 +1,27 @@
+<?php
+    $post = $block->getPost(1);
+?>
+
+
+
+<div class="wrapper bg-pink p-3">
+<!--    <h2>--><?//= $block->getTitle() ?><!-- </h2>-->
+
+    <div class="container">
+        <div class="sidebar">
+            <h4>Menu blog</h4>
+
+            <p><a href="" class="nav-link">post 1</a></p>
+
+        </div>
+        <small class="content">
+            <h3><?= $post['title'] ?></h3>
+            <div><?= $post['content'] ?></div>
+            <div>
+                <img src="<?= $post['featured_image'] ?>" width="80px"/>
+            </div>
+            <br>
+            <small><?= $post['author_id'] ?></small>
+        </div>
+    </div>
+</div>

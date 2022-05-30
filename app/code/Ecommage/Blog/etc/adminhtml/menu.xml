@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Ecommage_Blog::blog" title="Blogs" module="Ecommage_Blog" sortOrder="51" resource="Ecommage_Blog::blog"/>
+
+        <add id="Ecommage_Blog::manage" title="Manage " module="Ecommage_Blog" sortOrder="10" action="ecommage_Blog/manage" resource="Ecommage_HelloWorld::manage" parent="Ecommage_Blog::blog"/>
+
+        <add id="Ecommage_Blog::create" title="Create " module="Ecommage_Blog" sortOrder="99" parent="Ecommage_Blog::blog" action="commage_helloworld/create" resource="Ecommage_Blog::create"/>
+    </menu>
+</config>
