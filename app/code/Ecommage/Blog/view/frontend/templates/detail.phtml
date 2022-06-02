@@ -1,0 +1,18 @@
+<?php
+$blog = $block->getData('blog');
+?>
+
+<div class="wrapper bg-pink p-3">
+    <div class="container">
+        <small class="content">
+            <h3><?= $blog->getData('title') ?></h3>
+            <div><?= $blog->getData('content') ?></div>
+            <div>
+                <img src="<?= $blog->getData('featured_image')?>" width="80px"/>
+            </div>
+            <br>
+            <small>Author: <?= $blog['author_id'] ?></small>
+            <p> </p>
+    </div>
+</div>
+</div>

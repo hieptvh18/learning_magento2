@@ -1,34 +1,36 @@
 <?php
+declare(strict_types=1);
+
 namespace Ecommage\Blog\Block;
-use Magento\Framework\View\Element\Template;
+use \Magento\Framework\View\Element\Template;
 use \Magento\Framework\App\Action\Action;
 
-class Index extends \Magento\Framework\View\Element\Template
+
+class Index extends Template
 {
-    protected $action;
-    public function __construct(Template\Context $context, array $data = [], Action $action)
+    protected $_blogFactory;
+
+    public function __construct(Template\Context $context, array $data = [],
+                                \Ecommage\Blog\Model\BlogFactory $blogFactory )
     {
-        // gan class action cho protected action de dung dang glpbal
-        $this->action = $action;
+        $this->_blogFactory = $blogFactory;
         parent::__construct($context, $data);
     }
 
     /*
-     * get list blog-> render to menu sidebar
+     * get list blog-> render to menu fe
      * */
-    public function getBlogList(){
-//        use collection -> get list blog
-
-        return 'day la menu blog';
+    public function getBlogCollection(){
+        $blogs = $this->_blogFactory->create()->getCollection();
+        return $blogs;
     }
 
     /*
      * get post by id
      * */
-    public function getPost($id){
-        $post = $this->action->_objectManager->create('Ecommage\Blog\Model\Blog');
-        $post = $post->load($id)->getData();
-        return $post;
+    public function getBlog($id = 1){
+        $blogs = $this->_blogFactory->create()->load($id)->getData();
+        return $blogs;
     }
 
 }

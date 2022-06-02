@@ -13,7 +13,7 @@
    <constraint xsi:type="primary" referenceId="primary">
         <column name="id" />
    </constraint>
-   <constraint xsi:type="foreign" referenceId="AUTHOR_ID_FOREIGN_OF_ADMIN_USER" table="ecommage_blogs" column="author_id" referenceTable="admin_user" referenceColumn="user_id" onDelete="CASCADE"/>
+   <constraint xsi:type="foreign" referenceId="AUTHOR_ID_FOREIGN_OF_CUSTOMER_ENTITY" table="ecommage_blogs" column="author_id" referenceTable="customer_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
    </table>
 
 </schema>
