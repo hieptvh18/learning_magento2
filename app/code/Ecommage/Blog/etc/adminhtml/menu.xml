@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
-        <add id="Ecommage_Blog::blog" title="Blogs" module="Ecommage_Blog" sortOrder="1" resource="Ecommage_Blog::blog"/>
+        <add id="Ecommage_Blog::blog" title="Blogs" module="Ecommage_Blog" sortOrder="20" resource="Ecommage_Blog::blog"/>
 
         <add id="Ecommage_Blog::manage" title="Manage " module="Ecommage_Blog" sortOrder="10" action="blog/blog" resource="Ecommage_HelloWorld::manage" parent="Ecommage_Blog::blog"/>
 

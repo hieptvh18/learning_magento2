@@ -1,23 +1,32 @@
 <?php
 namespace Ecommage\Blog\Controller\Adminhtml\Blog;
 use Magento\Backend\App\Action\Context;
+use \Ecommage\Blog\Helper\Data;
+use Magento\Framework\View\Result\PageFactory;
 
 class Index extends \Magento\Backend\App\Action
 {
-    protected $resultPageFactory = false;
+    protected $_pageFactory;
+    protected $helper;
 
     public function __construct(
         Context $context,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
-    )
-    {
-        parent::__construct($context);
-        $this->resultPageFactory = $resultPageFactory;
+        PageFactory        $pageFactory,
+        Data                                  $helper
+    ) {
+        $this->_pageFactory = $pageFactory;
+        $this->helper = $helper;
+        return parent::__construct($context);
     }
 
     public function execute()
     {
-        $resultPage = $this->resultPageFactory->create();
+        if(!$this->helper->getGeneralConfig('enable')){
+            $this->messageManager->addError(__('Module blog is not working!'));
+            return $this->_redirect('admin/dashboard');
+        }
+
+        $resultPage = $this->_pageFactory->create();
         $resultPage->getConfig()->getTitle()->prepend((__('Blog Manage')));
         return $resultPage;
     }

@@ -23,6 +23,12 @@ class Index extends Action
     public function execute()
     {
 
+        if(!$this->_helper->getGeneralConfig('enable')){
+            //   module disable-> redirect
+            $this->messageManager->addError(__('Module is not working!'));
+            return $this->_redirect('/');
+        }
+
 //        $post = $this->_objectManager->create('Ecommage\Blog\Model\Blog');
 //         $post->addData([
 //             'author_id' => 2,
