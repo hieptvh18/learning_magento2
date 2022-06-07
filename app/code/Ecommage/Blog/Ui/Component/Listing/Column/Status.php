@@ -1,61 +1,31 @@
 <?php
-///**
-// * Copyright © Magento, Inc. All rights reserved.
-// * See COPYING.txt for license details.
-// */
-//namespace Ecommage\Blog\Ui\Component\Listing\Column;
-//
-//use Magento\Framework\View\Element\UiComponent\ContextInterface;
-//use Magento\Framework\View\Element\UiComponentFactory;
-//use Magento\Sales\Model\ResourceModel\Order\Status\CollectionFactory;
-//use Magento\Ui\Component\Listing\Columns\Column;
-//
-///**
-// * Class Status
-// */
-//class Status extends Column
-//{
-//    /**
-//     * @var string[]
-//     */
-//    protected $statuses;
-//
-//    /**
-//     * Constructor
-//     *
-//     * @param ContextInterface $context
-//     * @param UiComponentFactory $uiComponentFactory
-//     * @param CollectionFactory $collectionFactory
-//     * @param array $components
-//     * @param array $data
-//     */
-//    public function __construct(
-//        ContextInterface $context,
-//        UiComponentFactory $uiComponentFactory,
-//        CollectionFactory $collectionFactory,
-//        array $components = [],
-//        array $data = []
-//    ) {
-//        $this->statuses = $collectionFactory->create()->toOptionHash();
-//        parent::__construct($context, $uiComponentFactory, $components, $data);
-//    }
-//
-//    /**
-//     * Prepare Data Source
-//     *
-//     * @param array $dataSource
-//     * @return array
-//     */
-//    public function prepareDataSource(array $dataSource)
-//    {
-//        if (isset($dataSource['data']['items'])) {
-//            foreach ($dataSource['data']['items'] as & $item) {
-//                $item[$this->getData('name')] = isset($this->statuses[$item[$this->getData('name')]])
-//                    ? $this->statuses[$item[$this->getData('name')]]
-//                    : $item[$this->getData('name')];
-//            }
-//        }
-//
-//        return $dataSource;
-//    }
-//}
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+namespace Ecommage\Blog\Ui\Component\Listing\Column;
+
+use Magento\Framework\View\Element\UiComponent\ContextInterface;
+use Magento\Framework\View\Element\UiComponentFactory;
+use Magento\Sales\Model\ResourceModel\Order\Status\CollectionFactory;
+use Magento\Ui\Component\Listing\Columns\Column;
+
+/**
+ * Class Status
+ */
+class Status implements \Magento\Framework\Option\ArrayInterface
+{
+    /**
+     * Options getter
+     *
+     * @return array
+     */
+    public function toOptionArray()
+    {
+        return [
+            ['value' => 1, 'label' => __('Publish')],
+            ['value' => 2, 'label' => __('Draft')],
+            ['value' => 3, 'label' => __('Non-Publish')]
+        ];
+    }
+}

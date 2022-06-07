@@ -1,5 +1,6 @@
 <?php
 $blog = $block->getData('blog');
+
 ?>
 
 <div class="wrapper bg-pink p-3">
@@ -11,7 +12,7 @@ $blog = $block->getData('blog');
                 <img src="<?= $blog->getData('featured_image')?>" width="80px"/>
             </div>
             <br>
-            <small>Author: <?= $blog['author_id'] ?></small>
+            <small>Author: <?= $blog->getData('author_id') ?></small>
             <p> </p>
     </div>
 </div>

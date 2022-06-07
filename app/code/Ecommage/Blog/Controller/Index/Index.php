@@ -29,19 +29,6 @@ class Index extends Action
             return $this->_forward('/');
         }
 
-//        $post = $this->_objectManager->create('Ecommage\Blog\Model\Blog');
-//         $post->addData([
-//             'author_id' => 2,
-//             'url_key' => 'https://facebook.com',
-//             'title' => 'this is title post 2',
-//             'content' => 'post 2 content',
-//             'status' => 1,
-//             'featured_image' => 'https://yt3.ggpht.com/ytc/AKedOLRyODozgkiPQuM8Ca7eZyxM8iOYR_MvXuxqQksOoQ=s900-c-k-c0x00ffffff-no-rj'
-//             ]);
-//         $post->save();
-//
-//         die('create data done');
-
          $page = $this->_pageFactory->create();
          $page->getConfig()->getTitle()->set('Blog page');
 

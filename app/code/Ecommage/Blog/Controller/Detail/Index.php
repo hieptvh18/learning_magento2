@@ -41,6 +41,10 @@ class Index extends Action implements HttpGetActionInterface {
 
         $blog = $this->_blogFactory->create()->load($postId);
 
+        if(!$blog->getData()){
+            return $this->_redirect('blog');
+        }
+
         // truyen blog tra ve tu controller->block & render
         $page = $this->_pageFactory->create();
 
@@ -50,7 +54,5 @@ class Index extends Action implements HttpGetActionInterface {
 
         return $page;
     }
-
-    //    get detail blog
 
 }

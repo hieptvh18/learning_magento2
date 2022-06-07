@@ -22,22 +22,29 @@ class Index extends Template
     }
 
     /*
-     * get list blog-> render to menu fe
+     * get list blog != 2&3 -> render to menu fe
      * */
     public function getBlogCollection(){
-        $blogs = $this->_blogFactory->create()->getCollection();
+        $blogs = $this->_blogFactory->create()->getCollection()
+//            ->addFieldToFilter('status',['neq'=>3])
+//            ->addFieldToFilter('status',['neq'=>2])
+//        or
+                ->addFilter('status',1)
+        ;
         return $blogs;
     }
 
     /*
      * get post by id
      * */
-    public function getBlog($id = 3){
-        $blogs = $this->_blogFactory->create()->load($id)->getData();
+    public function getBlogRand(){
+        $blogs = $this->_blogFactory->create()->getCollection()
+            ->setOrder('created_at','desc')
+            ->addFilter('status',1)->getLastItem();
         return $blogs;
     }
 
-    public function getAll(){
+    public function getDataWithJoin(){
         return $this->_collection->joinCustomerTbl();
     }
 

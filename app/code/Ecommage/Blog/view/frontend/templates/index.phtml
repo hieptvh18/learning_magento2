@@ -1,30 +1,28 @@
 <?php
-//    $blog = $block->getBlog(1);
     $blogs = $block->getBlogCollection();
-    $blog = $block->getBlog();
-//    $getJoinAuthor = $block->getAll();
-//    echo "<pre>";
-//    var_dump($getJoinAuthor);
-//    die;
+    $blogRand = $block->getBlogRand();
+
 ?>
 
 <div class="wrapper bg-pink p-3">
-
     <div class="container">
         <div class="sidebar">
             <h4>Menu blog</h4>
-            <?php foreach($blogs as $val): ?>
-                <p><a href="<?= $this->getUrl('blog/detail?id='.$val->getData('id')) ?>" class="nav-link"><?= $val->getData('title') ?></a></p>
-            <?php endforeach;?>
+            <?php if($blogs->getData()):
+                foreach($blogs as $key=>$val): ?>
+                    <p style="margin-bottom: 10px;"><a href="<?= $this->getUrl('blog/detail?id='.$val->getData('id')) ?>" class="nav-link">
+                            <?= $key + 1 .'. '. $val->getData('title') ?>
+                        </a></p>
+            <?php endforeach;
+            else:?>
+            <p>Chưa có tin tức được đăng tải</p>
+            <?php endif; ?>
         </div>
-        <small class="content">
-            <h3><?= $blog['title'] ?></h3>
-            <div><?= $blog['content'] ?></div>
-            <div>
-                <img src="<?= $blog['featured_image'] ?>" width="80px"/>
-            </div>
-            <br>
-            <small><?= $blog['author_id'] ?></small>
+        <div class="content">
+            <h4><?= $blogRand->getData('title') ?></h4>
+            <img src="<?= $blogRand->getData('featured_image') ?>" width="100px" alt="">
+            <p><?= $blogRand->getData('content') ?></p>
+            <p><?= $blogRand->getData('created_at') ?></p>
         </div>
     </div>
 </div>
