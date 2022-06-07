@@ -31,7 +31,7 @@ class Index extends Action implements HttpGetActionInterface {
         if(!$this->_helper->getGeneralConfig('enable')){
             //   module disable-> redirect
             $this->messageManager->addError(__('Module is not working!'));
-            return $this->_redirect('/');
+            return $this->_forward('/');
         }
 
         $postId = $this->getRequest()->getParam('id',null);
@@ -45,7 +45,7 @@ class Index extends Action implements HttpGetActionInterface {
         $page = $this->_pageFactory->create();
 
         // gan data cho block
-        $block = $page->getLayout()->getBlock('blog_detail_index');
+        $block = $page->getLayout()->getBlock('blog.detail.index');
         $block->setData('blog', $blog);
 
         return $page;

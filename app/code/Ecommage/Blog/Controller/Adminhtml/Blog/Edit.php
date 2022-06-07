@@ -1,66 +1,53 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- */
+
 namespace Ecommage\Blog\Controller\Adminhtml\Blog;
 
-use Magento\Framework\App\Action\HttpGetActionInterface;
+use Ecommage\Blog\Helper\Data;
+use Magento\Backend\App\Action\Context;
+use Magento\Framework\View\Result\PageFactory;
+use Ecommage\Blog\Model\BlogFactory;
 
-/**
- * Edit CMS block action.
- */
-class Edit extends \Magento\Cms\Controller\Adminhtml\Block implements HttpGetActionInterface
-{
-    /**
-     * @var \Magento\Framework\View\Result\PageFactory
-     */
-    protected $resultPageFactory;
+class Edit extends \Magento\Backend\App\Action{
+    protected  $_pageFactory;
+    protected $helper;
+    private $_blogFactory;
 
-    /**
-     * @param \Magento\Backend\App\Action\Context $context
-     * @param \Magento\Framework\Registry $coreRegistry
-     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
-     */
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\Registry $coreRegistry,
-        \Magento\Framework\View\Result\PageFactory $resultPageFactory
-    ) {
-        $this->resultPageFactory = $resultPageFactory;
-        parent::__construct($context, $coreRegistry);
+        Context $context,
+        PageFactory  $pageFactory,
+        Data $helper,
+        BlogFactory $blogFactory
+    )
+    {
+        $this->_blogFactory = $blogFactory;
+        $this->helper = $helper;
+        $this->_pageFactory = $pageFactory;
+        parent::__construct($context);
     }
 
-    /**
-     * Edit CMS block
-     *
-     * @return \Magento\Framework\Controller\ResultInterface
-     * @SuppressWarnings(PHPMD.NPathComplexity)
-     */
     public function execute()
     {
-        // 1. Get ID and update blog
-        $id = $this->getRequest()->getParam('id');
-        $model = $this->_objectManager->create(\Ecommage\Blog\Model\Blog::class);
-
-        // 2. Initial checking
-        if ($id) {
-            $model->load($id);
-            if (!$model->getId()) {
-                $this->messageManager->addErrorMessage(__('This blog no longer exists.'));
-                /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
-                $resultRedirect = $this->resultRedirectFactory->create();
-                return $resultRedirect->setPath('*/*/');
-            }
+        if(!$this->helper->getGeneralConfig('enable')){
+            //   module disable-> redirect
+            $this->messageManager->addError(__('Module blog is not working!'));
+            return $this->_forward('admin/dashboard');
         }
 
-        $this->_coreRegistry->register('blog', $model);
+        $blogId = $this->getRequest()->getParam('id');
+        if(!$blogId){
+            $this->messageManager->addError(__("Can't find the record you want to edit"));
+            return $this->_redirect('blog/blog');
+        }
 
-        // 5. Build edit form
-        /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->getConfig()->getTitle()->prepend(__('Blocks'));
-        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getTitle() : __('EDIT BLOG'));
-        return $resultPage;
+        $blogModel = $this->_blogFactory->create();
+        $blog = $blogModel->load($blogId);
+        if(!$blog->getData()){
+            $this->messageManager->addError(__("Can't find the record you want to edit"));
+            return $this->_redirect('blog/blog');
+        }
+
+        $page = $this->_pageFactory->create();
+        $page->getConfig()->getTitle()->prepend(__('BLOG DETAIL'));
+        return $page;
     }
 }

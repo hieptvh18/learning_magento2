@@ -2,9 +2,9 @@
 
 namespace Ecommage\Blog\Controller\Adminhtml\Blog;
 
+use Ecommage\Blog\Helper\Data;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
-use Ecommage\Blog\Helper\Data;
 
 class Create extends \Magento\Backend\App\Action{
     protected  $_pageFactory;
@@ -26,9 +26,8 @@ class Create extends \Magento\Backend\App\Action{
         if(!$this->helper->getGeneralConfig('enable')){
             //   module disable-> redirect
             $this->messageManager->addError(__('Module blog is not working!'));
-            return $this->_redirect('admin/dashboard');
+            return $this->_forward('admin/dashboard');
         }
-
         $page = $this->_pageFactory->create();
 
         $page->getConfig()->getTitle()->prepend(__('ADD NEW BLOG'));

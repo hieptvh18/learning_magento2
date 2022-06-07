@@ -14,7 +14,7 @@
             </item>
         </item>
     </argument>
-    <dataSource name="nameOfDataSource">
+    <dataSource name="blog_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
             <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
             <argument name="name" xsi:type="string">blog_listing_data_source</argument>
@@ -44,7 +44,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">delete</item>
                         <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="blog/blog/delete/id"/>
+                        <item name="url" xsi:type="url" path="blog/blog/delete"/>
 
                         <!--      <item name="paramName" xsi:type="string">id</item>-->
 
@@ -171,15 +171,15 @@
                 </item>
             </argument>
         </column>
-        <column name="" class="Magento\Ui\Component\Listing\Columns\Date">
+
+        <actionsColumn name="actions" class = "Ecommage\Blog\Ui\Component\Listing\Column\Action">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">dateRange</item>
-                    <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/date</item>
-                    <item name="dataType" xsi:type="string">date</item>
-                    <item name="label" xsi:type="string" translate="true">Action</item>
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="indexField" xsi:type="string">id</item>
                 </item>
             </argument>
-        </column>
+        </actionsColumn>
     </columns>
 </listing>

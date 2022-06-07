@@ -8,6 +8,6 @@
     </head>
 
     <referenceContainer name="content">
-        <block class="Magento\Framework\View\Element\Template" name="blog_detail_index" template="Ecommage_Blog::detail.phtml" />
+        <block class="Magento\Framework\View\Element\Template" name="blog.detail.index" template="Ecommage_Blog::detail.phtml" />
     </referenceContainer>
 </page>

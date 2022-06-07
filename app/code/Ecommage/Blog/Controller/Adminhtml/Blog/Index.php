@@ -1,7 +1,7 @@
 <?php
 namespace Ecommage\Blog\Controller\Adminhtml\Blog;
+use Ecommage\Blog\Helper\Data;
 use Magento\Backend\App\Action\Context;
-use \Ecommage\Blog\Helper\Data;
 use Magento\Framework\View\Result\PageFactory;
 
 class Index extends \Magento\Backend\App\Action
@@ -23,7 +23,7 @@ class Index extends \Magento\Backend\App\Action
     {
         if(!$this->helper->getGeneralConfig('enable')){
             $this->messageManager->addError(__('Module blog is not working!'));
-            return $this->_redirect('admin/dashboard');
+            return $this->_forward('admin/dashboard');
         }
 
         $resultPage = $this->_pageFactory->create();

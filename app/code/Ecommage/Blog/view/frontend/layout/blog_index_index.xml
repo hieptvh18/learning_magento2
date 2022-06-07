@@ -8,6 +8,6 @@
     </head>
 
     <referenceContainer name="content">
-        <block class="Ecommage\Blog\Block\Index" name="blog_index_index" template="Ecommage_Blog::index.phtml" />
+        <block class="Ecommage\Blog\Block\Index" name="blog.index.content" template="Ecommage_Blog::index.phtml" />
     </referenceContainer>
 </page>

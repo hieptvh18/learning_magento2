@@ -26,7 +26,7 @@ class Index extends Action
         if(!$this->_helper->getGeneralConfig('enable')){
             //   module disable-> redirect
             $this->messageManager->addError(__('Module is not working!'));
-            return $this->_redirect('/');
+            return $this->_forward('/');
         }
 
 //        $post = $this->_objectManager->create('Ecommage\Blog\Model\Blog');

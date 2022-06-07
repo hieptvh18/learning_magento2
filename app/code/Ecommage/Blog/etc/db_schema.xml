@@ -1,6 +1,6 @@
 <schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
-
     <table name="ecommage_blogs" resource="sales" engine="innodb" comment="Ecommage Helloworld Post">
+
    <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="id blog"/>
 	<column xsi:type="int" name="author_id" nullable="false" comment="Info of author" unsigned="true"/>
 	<column xsi:type="text" name="url_key" comment="Blog URL Key"/>
