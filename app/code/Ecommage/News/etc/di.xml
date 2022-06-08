@@ -1,0 +1,15 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="news_listing_data_source" xsi:type="string">Ecommage\News\Model\ResourceModel\News\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Ecommage\News\Model\ResourceModel\News\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">ecommage_news</argument>
+            <argument name="resourceModel" xsi:type="string">Ecommage\News\Model\ResourceModel\News</argument>
+        </arguments>
+    </virtualType>
+</config>

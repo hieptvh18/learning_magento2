@@ -1,0 +1,28 @@
+<?php
+    $news = $block->getNewsCollection();
+    $blogRand = $block->getNewsRand();
+
+?>
+
+<div class="wrapper bg-pink p-3">
+    <div class="container">
+        <div class="sidebar">
+            <h4>Menu blog</h4>
+            <?php if($news->getData()):
+                foreach($news as $key=>$val): ?>
+                    <p style="margin-bottom: 10px;"><a href="<?= $this->getUrl('news/detail?id='.$val->getData('id')) ?>" class="nav-link">
+                            <?= $key + 1 .'. '. $val->getData('title') ?>
+                        </a></p>
+            <?php endforeach;
+            else:?>
+            <p>Chưa có tin tức được đăng tải</p>
+            <?php endif; ?>
+        </div>
+        <div class="content">
+            <h4><?= $blogRand->getData('title') ?></h4>
+            <img src="<?= $blogRand->getData('featured_image') ?>" width="100px" alt="">
+            <p><?= $blogRand->getData('content') ?></p>
+            <p><?= $blogRand->getData('created_at') ?></p>
+        </div>
+    </div>
+</div>

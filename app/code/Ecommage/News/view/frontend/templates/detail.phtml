@@ -1,0 +1,19 @@
+<?php
+$news = $block->getData('news');
+
+?>
+
+<div class="wrapper bg-pink p-3">
+    <div class="container">
+        <small class="content">
+            <h3><?= $news->getData('title') ?></h3>
+            <div><?= $news->getData('content') ?></div>
+            <div>
+                <img src="<?= $news->getData('featured_image')?>" width="80px"/>
+            </div>
+            <br>
+            <small>Author: <?= $news->getData('author_id') ?></small>
+            <p> </p>
+    </div>
+</div>
+</div>

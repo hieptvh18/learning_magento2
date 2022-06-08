@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Ecommage_News::news" title="News" module="Ecommage_News" sortOrder="20" resource="Ecommage_News::news"/>
+
+        <add id="Ecommage_News::manage" title="Manage " module="Ecommage_News" sortOrder="10" action="news/news" resource="Ecommage_HelloWorld::manage" parent="Ecommage_News::news"/>
+
+        <add id="Ecommage_News::create" title="Create " module="Ecommage_News" sortOrder="99" parent="Ecommage_News::news" action="news/news/create" resource="Ecommage_News::create"/>
+    </menu>
+</config>
