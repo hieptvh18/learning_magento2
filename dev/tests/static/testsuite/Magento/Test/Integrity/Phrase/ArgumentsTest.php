@@ -39,7 +39,7 @@ class ArgumentsTest extends \Magento\Test\Integrity\Phrase\AbstractTestCase
         $this->blackList = [
             // the file below is the only file where strings are translated without corresponding arguments
             $componentRegistrar->getPath(ComponentRegistrar::MODULE, 'Magento_Translation')
-                . '/Model/Js/DataProvider.php',
+                . '/Model/Js/CustomDataProvider.php',
         ];
     }
 

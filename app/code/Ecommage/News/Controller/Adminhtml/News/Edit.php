@@ -34,7 +34,7 @@ class Edit extends \Magento\Backend\App\Action implements HttpGetActionInterface
             return $this->_forward('admin/dashboard');
         }
 
-        $newsId = $this->getRequest()->getParam('id');
+        $newsId = $this->getRequest()->getParam('blog_id');
         if(!$newsId){
             $this->messageManager->addError(__("Can't find the record you want to edit"));
             return $this->_redirect('news/news');
@@ -48,7 +48,7 @@ class Edit extends \Magento\Backend\App\Action implements HttpGetActionInterface
         }
 
         $page = $this->_pageFactory->create();
-        $page->getConfig()->getTitle()->prepend(__('BLOG DETAIL'));
+        $page->getConfig()->getTitle()->prepend(__('NEWS DETAIL'));
         return $page;
     }
 }

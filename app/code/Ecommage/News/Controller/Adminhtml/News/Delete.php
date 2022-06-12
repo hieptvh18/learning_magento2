@@ -38,13 +38,6 @@ class Delete extends \Magento\Backend\App\Action implements HttpPostActionInterf
 
     public function execute()
     {
-        $newsIds = $this->getRequest()->getParam('selected');
-
-        if(count($newsIds) == 0){
-            $this->messageManager->addError(__("Can't find the record you want to delete"));
-            return $this->_redirect('news/news');
-        }
-
         /*
          * exec delete, filter giup loc ra cac ban ghi theo id cua selector->loop & delete
          * */

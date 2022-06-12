@@ -10,9 +10,11 @@
             <h4>Menu blog</h4>
             <?php if($news->getData()):
                 foreach($news as $key=>$val): ?>
-                    <p style="margin-bottom: 10px;"><a href="<?= $this->getUrl('news/detail?id='.$val->getData('id')) ?>" class="nav-link">
+                    <p style="margin-bottom: 10px;">
+                        <a href="<?= $this->getUrl('news/detail?id='.$val->getData('id')) ?>" class="nav-link">
                             <?= $key + 1 .'. '. $val->getData('title') ?>
-                        </a></p>
+                        </a>
+                    </p>
             <?php endforeach;
             else:?>
             <p>Chưa có tin tức được đăng tải</p>

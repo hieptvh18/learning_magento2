@@ -11,14 +11,25 @@ class Index extends Template
 {
     protected $_newsFactory;
     protected $_collection;
+    protected $_helper;
+//    protected $_template = 'Ecommage_News::index.phtml';
 
     public function __construct(Template\Context $context, array $data = [],
                                 \Ecommage\News\Model\NewsFactory $newsFactory ,
-    Collection $collection)
+                                \Ecommage\News\Helper\Data $helper,
+                                Collection $collection)
     {
+        $this->_helper = $helper;
         $this->_collection = $collection;
         $this->_newsFactory = $newsFactory;
         parent::__construct($context, $data);
+    }
+
+    protected function _prepareLayout()
+    {
+        parent::_prepareLayout();
+        $this->setTemplate('Ecommage_News::index.phtml');
+        return $this;
     }
 
     /*
@@ -44,8 +55,8 @@ class Index extends Template
         return $news;
     }
 
-    public function getDataWithJoin(){
-        return $this->_collection->joinCustomerTbl();
+    public function getDataJoinUserTbl(){
+        return $this->_collection->joinAdminUserTbl();
     }
 
 }

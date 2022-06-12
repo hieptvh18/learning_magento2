@@ -1,0 +1,36 @@
+<?php
+
+?>
+<h3>Add new blog</h3>
+
+<form action="" method="POST">
+    <div class="form-group">
+        <label for="">Title</label>
+        <input type="text" placeholder="Enter title" name="title" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="">Content</label>
+        <input type="text" placeholder="Enter Content" name="content" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="">Url key</label>
+        <input type="text" placeholder="Enter url" name="url_key" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="">Feature image</label>
+        <input type="file" class="form-control" name="featured_image">
+    </div>
+
+    <div class="form-group">
+        <label for="">Status</label>
+        <select name="status" id="">
+            <option value="1">Publish</option>
+            <option value="2">Draft</option>
+            <option value="3">Non-Publish</option>
+        </select>
+    </div>
+    <button type="submit">Submit</button>
+</form>

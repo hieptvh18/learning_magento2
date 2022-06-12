@@ -13,6 +13,8 @@
             <button name="save" class="Ecommage\News\Block\Adminhtml\Edit\SaveButton"/>
             <button name="reset" class="Ecommage\News\Block\Adminhtml\Edit\ResetButton"/>
             <button name="back" class="Ecommage\News\Block\Adminhtml\Edit\BackButton"/>
+            <button name="custom" class="Ecommage\News\Block\Adminhtml\Edit\CustomButton"/>
+
         </buttons>
         <namespace>news_form</namespace>
         <dataScope>data</dataScope>
@@ -31,7 +33,7 @@
         </settings>
         <dataProvider class="Ecommage\News\Model\Config\DataProvider" name="news_form_data_source">
             <settings>
-                <requestFieldName>id</requestFieldName>
+                <requestFieldName>blog_id</requestFieldName>
                 <primaryFieldName>id</primaryFieldName>
             </settings>
         </dataProvider>

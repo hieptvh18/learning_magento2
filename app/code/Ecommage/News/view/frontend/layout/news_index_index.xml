@@ -5,9 +5,11 @@
 
         <!-- nhung assets o head -->
         <css src="Ecommage_News::css/style.css"/>
+        <css src="css/style.css"/>
+        <script src="Ecommage_News::js/script.js"/>
     </head>
 
     <referenceContainer name="content">
-        <block class="Ecommage\News\Block\Index" name="news.index.content" template="Ecommage_News::index.phtml" />
+        <block class="Ecommage\News\Block\Index" name="news.index.content" />
     </referenceContainer>
 </page>

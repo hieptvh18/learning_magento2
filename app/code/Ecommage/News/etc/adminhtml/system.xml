@@ -18,6 +18,10 @@
                     <comment>This text will display on the frontend.</comment>
                 </field>
 
+                <field id="news_collect" translate="label comment" type="button" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>Ecommage\News\Block\System\Config\Collect</frontend_model>
+                    <label>Collect all available data (in separate table)</label>
+                </field>
             </group>
         </section>
     </system>

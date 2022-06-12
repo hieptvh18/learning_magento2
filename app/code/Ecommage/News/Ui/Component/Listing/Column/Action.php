@@ -56,7 +56,7 @@ class Action extends Column
                     $item[$name]['edit'] = [
                         'href' => $this->_urlBuilder->getUrl(
                             $this->_editUrl,
-                            ['id' => $item['id']]
+                            ['blog_id' => $item['id']]
                         ),
                         'label' => __('Edit'),
                     ];

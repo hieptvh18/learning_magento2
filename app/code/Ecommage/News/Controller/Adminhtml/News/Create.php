@@ -30,7 +30,7 @@ class Create extends \Magento\Backend\App\Action{
         }
         $page = $this->_pageFactory->create();
 
-        $page->getConfig()->getTitle()->prepend(__('ADD NEW BLOG'));
+        $page->getConfig()->getTitle()->prepend(__('ADD NEW NEWS'));
         return $page;
     }
 }

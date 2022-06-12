@@ -7,7 +7,7 @@
             </argument>
         </arguments>
     </type>
-    <type name="ViMagento\OrderGrid\Model\ResourceModel\Order\Grid\Collection">
+    <type name="Ecommage\OrderGrid\Model\ResourceModel\Order\Grid\Collection">
         <arguments>
             <argument name="mainTable" xsi:type="string">sales_order_grid</argument>
             <argument name="resourceModel" xsi:type="string">Magento\Sales\Model\ResourceModel\Order</argument>
