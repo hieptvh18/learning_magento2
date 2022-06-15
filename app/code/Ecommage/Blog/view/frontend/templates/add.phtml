@@ -1,0 +1,56 @@
+<?php
+        echo $block->test();
+?>
+<div class="form-blog">
+    <h3>Add new blog</h3>
+
+    <form action="" class="form" method="POST" enctype="multipart/form-data" id="form-add-blog" data-mage-init='{"validation": {}}'>
+        <div class="form-group">
+            <label for="">Title</label>
+            <input type="text" placeholder="Enter title" name="title" id="title" class="form-control" data-validate="{'required-entry':true}">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="">Content</label>
+            <textarea name="content" id="content" cols="30" rows="5" data-validate="{'required-entry':true}"></textarea>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="">Url key</label>
+            <input type="text" placeholder="Enter url" name="url_key" id="url_key" class="form-control" data-validate="{'required-entry':true}">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="">Feature image</label>
+            <input type="file" class="form-control" name="featured_image" id="featured_image" data-validate="{'required-file':true}">
+            <img src="" id="img-preview" />
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="">Status</label>
+            <select name="status" id="status">
+                <option value="1">Publish</option>
+                <option value="2">Draft</option>
+                <option value="3">Non-Publish</option>
+            </select>
+        </div>
+        <br>
+        <button type="submit" id="btn-add-blog">Submit</button>
+    </form>
+</div>
+
+<script>
+    require(["jquery",'mage/url'],function ($,urlBuilder){
+        $(document).ready(function (){
+            $('#btn-add-blog').click(function (){
+                var url = urlBuilder.build('helloworld/ajax/index');
+                $.ajax({
+                //    gui form data -> controller
+
+
+                })
+            })
+        })
+    })
+
+</script>

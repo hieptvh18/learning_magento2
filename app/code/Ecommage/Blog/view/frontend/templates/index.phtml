@@ -1,6 +1,21 @@
-<h3>Template hello blog</h3>
-<ul>
+<?php
+    $blogList = $block->getBlogList();
+?>
 
-    <li><a href="" >Blog 1</a></li>
-
-</ul>
+<div class="list-blog">
+    <h3>List blog Ecommage</h3>
+    <ul>
+        <?php if($blogList->getData()){
+            foreach($blogList as $key=>$blog) {
+        ?>
+            <li>
+                <a href="<?= $this->getUrl('blog/'.$blog->getData('id')) ?>" >
+                    <?= $blog->getData('title') ?>
+                    <span> - Author: <?= $blog->getData('author_id') ?></span>
+                </a>
+            </li>
+        <?php }}else
+            echo "nothing!";
+        ?>
+    </ul>
+</div>

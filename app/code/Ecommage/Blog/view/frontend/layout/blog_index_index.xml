@@ -2,14 +2,11 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <title>Blog - Ecommage</title>
-
-        <!-- nhung assets o head -->
-<!--        <css src="Ecommage_News::css/style.css"/>-->
-<!--        <css src="css/style.css"/>-->
-<!--        <script src="Ecommage_News::js/script.js"/>-->
+        <css src="Ecommage_Blog::css/style.css" />
     </head>
 
-    <referenceContainer name="content">
-        <block class="Ecommage\Blog\Block\Index" name="blog.index.content" template="Ecommage_Blog::index.phtml" />
+    <referenceContainer name="content" htmlClass="container-blog" htmlTag="div">
+        <block class="Ecommage\Blog\Block\Add" name="blog.index.content" template="Ecommage_Blog::add.phtml" />
+        <block class="Ecommage\Blog\Block\Index" name="blog.list.content" template="Ecommage_Blog::index.phtml" />
     </referenceContainer>
 </page>

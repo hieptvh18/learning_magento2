@@ -19,14 +19,14 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
 	}
 
     //    join table
-    public function joinAdminUserTbl()
+    public function joinCustomerTbl()
     {
        $blogTbl  = $this->getTable('ecommage_blog');
-       $adminUserTbl = $this->getTable('admin_user');
+       $customerTbl = $this->getTable('customer_entity');
 
         $collection = $this->join([
-            'user'=>$adminUserTbl
-        ], 'main_table.id = user.user_id',
+            'user'=>$customerTbl
+        ], 'main_table.author_id = user.entity_id',
             ['author_id'=>'user.firstname']
         );
 

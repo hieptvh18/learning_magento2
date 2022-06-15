@@ -1,0 +1,16 @@
+<?php
+// get current product data
+$product = $block->getProduct();
+
+// get Product name
+echo 'Product name: '. $product->getName();
+
+// get product description
+//echo $product->getDescription();
+
+// to
+echo $product->getData('attribute_test');
+
+
+
+?>

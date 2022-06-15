@@ -12,7 +12,7 @@ class Index extends Template
     protected $_newsFactory;
     protected $_collection;
     protected $_helper;
-//    protected $_template = 'Ecommage_News::index.phtml';
+    protected $_template = 'Ecommage_News::index.phtml';
 
     public function __construct(Template\Context $context, array $data = [],
                                 \Ecommage\News\Model\NewsFactory $newsFactory ,
@@ -25,12 +25,12 @@ class Index extends Template
         parent::__construct($context, $data);
     }
 
-    protected function _prepareLayout()
-    {
-        parent::_prepareLayout();
-        $this->setTemplate('Ecommage_News::index.phtml');
-        return $this;
-    }
+//    protected function _prepareLayout()
+//    {
+//        parent::_prepareLayout();
+//        $this->setTemplate('Ecommage_News::index.phtml');
+//        return $this;
+//    }
 
     /*
      * get list news != 2&3 -> render to menu fe

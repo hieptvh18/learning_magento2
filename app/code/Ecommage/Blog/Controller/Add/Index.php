@@ -36,8 +36,10 @@ class Index extends Action implements HttpGetActionInterface {
 
         // display form blogging
         $page = $this->pageFactory->create();
+        $page->addHandle('blog_index_index');
+        $page->getLayout()->getBlock('blog.add.content');
         $page->getConfig()->getTitle()->set(__('Blog form'));
-//        $page->getLayout()->getBlock('blog.create.content');
+
         return $page;
     }
 }

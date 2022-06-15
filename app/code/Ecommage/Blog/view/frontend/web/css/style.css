@@ -1,0 +1,19 @@
+body{
+    background: #d4cfcf;
+}
+.container-blog{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+}
+.form-blog{
+    width: 70%;
+}
+
+.list-blog{
+    width: 25%;
+}
+
+#img-preview{
+    width: 300px;
+}
