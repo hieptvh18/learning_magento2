@@ -4,10 +4,11 @@
 <div class="form-blog">
     <h3>Add new blog</h3>
 
-    <form action="" class="form" method="POST" enctype="multipart/form-data" id="form-add-blog" data-mage-init='{"validation": {}}'>
+    <form action="<?= $this->getUrl('blog/action/save') ?>" class="form" method="POST" enctype="multipart/form-data" id="form-add-blog" data-mage-init='{"validation": {}}'>
         <div class="form-group">
             <label for="">Title</label>
             <input type="text" placeholder="Enter title" name="title" id="title" class="form-control" data-validate="{'required-entry':true}">
+            <small class="erTitleEl elErr"></small>
         </div>
         <br>
         <div class="form-group">
@@ -42,14 +43,42 @@
 <script>
     require(["jquery",'mage/url'],function ($,urlBuilder){
         $(document).ready(function (){
-            $('#btn-add-blog').click(function (){
-                var url = urlBuilder.build('helloworld/ajax/index');
-                $.ajax({
-                //    gui form data -> controller
 
+            $('#form-add-blog').mage('validation',{
+                submitHandler:function(form){
 
-                })
+                    if($('input[name="content"]').val() == '' || $('input[name="url_key"]').val() ){
+                        $('.erTitleEl').html('');
+                        $('input[name="title"]').css('border','');
+                    }
+
+                    const url = urlBuilder.build('blog/ajax/validate');
+                    const title = $('input[name="title"]').val();
+                        $.ajax({
+                            //    gui form data -> controller
+                            url: url,
+                            type:'POST',
+                            dataType :'json',
+                            data:{
+                                title:title
+                            },
+                            success:function(res){
+
+                                if(res.status == 'exist'){
+                                    $('.erTitleEl').html('Title existed! please again!');
+                                    $('input[name="title"]').css('border','solid red');
+                                }else{
+                                    // not exist -> submit save blog
+                                   form.submit();
+                                }
+                            },
+                            error(err){
+                                console.log(err)
+                            }
+                        })
+                }
             })
+
         })
     })
 
