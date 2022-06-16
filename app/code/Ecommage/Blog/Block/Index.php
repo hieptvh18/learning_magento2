@@ -17,7 +17,7 @@ class Index extends Template
     }
 
     public function getBlogList(){
-        $data = $this->collection->joinCustomerTbl();
+        $data = $this->collection->joinCustomerTbl()->addFilter('status',1);
         return $data;
     }
 

@@ -1,0 +1,18 @@
+<?php
+$blogs = $block->getMyBlogList();
+?>
+
+<ul style="padding: 0 30px;">
+    <?php if($blogs->getSize()){ foreach($blogs as $key=>$blog){ ?>
+        <li>
+            <div style="display: flex; justify-content: space-between;">
+                <a href="<?= $block->getUrl('blog/detail/index/id/'.$blog->getData('id')) ?>">
+                    <?= $blog->getData('title') ?>
+                </a>
+                <a href="<?= $block->getUrl('blog/myblog/edit/id/'.$blog->getData('id')) ?>">edit</a>
+            </div>
+        </li>
+    <?php }} else
+        echo "nothing!";
+        ?>
+</ul>

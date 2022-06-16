@@ -1,5 +1,5 @@
 {
-    "ecommage_news": {
+    "ecommage_blog": {
         "column": {
             "id": true,
             "author_id": true,
@@ -13,7 +13,7 @@
         },
         "constraint": {
             "PRIMARY": true,
-            "ECOMMAGE_NEWS_AUTHOR_ID_ADMIN_USER_USER_ID": true
+            "ECOMMAGE_BLOG_AUTHOR_ID_CUSTOMER_ENTITY_ENTITY_ID": true
         }
     }
 }

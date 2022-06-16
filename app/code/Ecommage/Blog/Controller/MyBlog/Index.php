@@ -1,6 +1,6 @@
 <?php
 
-namespace Ecommage\Blog\Controller\Index;
+namespace Ecommage\Blog\Controller\MyBlog;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface;
@@ -15,8 +15,6 @@ class Index extends Action implements HttpGetActionInterface {
                                 \Magento\Customer\Model\Session $_authSession,
                                 \Magento\Customer\Model\Url $customerUrl,
                                 \Magento\Framework\View\Result\PageFactory $_pageFactory
-
-
     )
     {
         $this->pageFactory=  $_pageFactory;
@@ -35,9 +33,9 @@ class Index extends Action implements HttpGetActionInterface {
             return $this->_redirect($urlLogin);
         }
 
-        // display form blogging
+        // display my blog
         $page = $this->pageFactory->create();
-        $page->getConfig()->getTitle()->set(__('Add blog'));
+        $page->getConfig()->getTitle()->set(__('Your blog'));
 
         return $page;
     }

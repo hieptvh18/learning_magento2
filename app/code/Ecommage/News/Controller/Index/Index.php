@@ -29,7 +29,7 @@ class Index extends Action
         }
 
          $page = $this->_pageFactory->create();
-         $page->getConfig()->getTitle()->set('Blog page');
+         $page->getConfig()->getTitle()->set('News page');
 
         return $page;
     }

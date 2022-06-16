@@ -1,10 +1,8 @@
 <?php
-        echo $block->test();
 ?>
 <div class="form-blog">
-    <h3>Add new blog</h3>
-
-    <form action="<?= $this->getUrl('blog/action/save') ?>" class="form" method="POST" enctype="multipart/form-data" id="form-add-blog" data-mage-init='{"validation": {}}'>
+    <a href="<?= $block->getUrl('blog/myblog') ?>">Your blog +</a>
+    <form action="<?= $block->getUrl('blog/action/save') ?>" class="form" method="POST" enctype="multipart/form-data" id="form-add-blog" data-mage-init='{"validation": {}}'>
         <div class="form-group">
             <label for="">Title</label>
             <input type="text" placeholder="Enter title" name="title" id="title" class="form-control" data-validate="{'required-entry':true}">
@@ -36,6 +34,7 @@
             </select>
         </div>
         <br>
+    <input type="hidden" name="form_key" value="<?= $block->getFormKey() ?>"/>
         <button type="submit" id="btn-add-blog">Submit</button>
     </form>
 </div>

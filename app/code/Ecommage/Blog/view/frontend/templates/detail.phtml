@@ -1,19 +1,39 @@
 <?php
-$blog = $block->getData('detailBlog');
+    $blog = $block->getData('blog');
+    $relateBlog = $block->getData('relateBlog');
+    $mediaUrl = $block->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+
 ?>
 
 <div class="wrapper p-3">
     <div class="detail-blog">
         <h3>Detail blog</h3>
-        <small class="content">
-            <h3><?= $blog->getData('title') ?></h3>
-            <div><?= $blog->getData('content') ?></div>
+
+        <div class="content">
+            <a href="<?= $block->getUrl('blog') ?>"><------------ back to list</a>
+            <h3>Title: <?= $blog->getData('title') ?></h3>
+            <div>Content: <?= $blog->getData('content') ?></div>
             <div>
-                <img src="<?= $blog->getData('featured_image')?>" width="80px"/>
+                <img src="<?= $mediaUrl.$blog->getData('featured_image') ?>" width="300px"/>
             </div>
             <br>
             <small>Author: <?= $blog->getData('author_id') ?></small>
-            <p> </p>
+            <h4>Relate blog:</h4>
+            <div style="display: flex; column-gap: 20px;">
+<!--                render relate blog-->
+                <?php if($relateBlog->getSize()){
+                    foreach($relateBlog as $blog){?>
+
+                    <div style="text-align: center; width: 20%; background:#fff;">
+                        <h6><a href="<?= $block->getUrl('blog/detail/index/id/'.$blog->getData('id')) ?>"><?= $blog->getData('title') ?></a></h6>
+                        <div>
+                            <img src="<?= $mediaUrl.$blog->getData('featured_image') ?>" width="80px"/>
+                        </div>
+                        <p>Author: <?= $blog->getData('author_id') ?></p>
+                    </div>
+                <?php }}else
+                echo "nothing!";?>
+            </div>
     </div>
 </div>
 </div>

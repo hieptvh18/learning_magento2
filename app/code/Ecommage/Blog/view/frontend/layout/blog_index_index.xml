@@ -6,7 +6,7 @@
     </head>
 
     <referenceContainer name="content" htmlClass="container-blog" htmlTag="div">
-        <block class="Ecommage\Blog\Block\Add" name="blog.index.content" template="Ecommage_Blog::add.phtml" />
+        <block class="Ecommage\Blog\Block\Add" name="blog.add.content" template="Ecommage_Blog::add.phtml" />
         <block class="Ecommage\Blog\Block\Index" name="blog.list.content" template="Ecommage_Blog::index.phtml" />
     </referenceContainer>
 </page>
