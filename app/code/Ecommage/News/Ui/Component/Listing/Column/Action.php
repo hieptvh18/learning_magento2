@@ -11,6 +11,8 @@ class Action extends Column
 {
     /** Url path */
     const ROW_EDIT_URL = 'news/news/edit';
+    const CMS_URL_PATH_DELETE = 'news/news/delete1';
+
     /** @var UrlInterface */
     protected $_urlBuilder;
 
@@ -59,6 +61,15 @@ class Action extends Column
                             ['blog_id' => $item['id']]
                         ),
                         'label' => __('Edit'),
+                    ];
+                    $item[$name]['delete'] = [
+                        'href' => $this->_urlBuilder->getUrl(self::CMS_URL_PATH_DELETE, ['blog_id' => $item['id']]),
+                        'label' => __('Delete'),
+                        'confirm' => [
+                            'title' => __('Delete '),
+                            'message' => __('Are you sure you want to delete  record?'),
+                        ],
+                        'post' => true,
                     ];
                 }
             }

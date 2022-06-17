@@ -14,7 +14,7 @@
             <button name="reset" class="Ecommage\News\Block\Adminhtml\Edit\ResetButton"/>
             <button name="back" class="Ecommage\News\Block\Adminhtml\Edit\BackButton"/>
             <button name="custom" class="Ecommage\News\Block\Adminhtml\Edit\CustomButton"/>
-
+            <button name="custom2" class="Ecommage\News\Block\Adminhtml\Edit\CustomButton2"/>
         </buttons>
         <namespace>news_form</namespace>
         <dataScope>data</dataScope>

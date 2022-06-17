@@ -5,6 +5,6 @@
     </head>
 
     <referenceContainer name="content">
-        <block class="Magento\Framework\View\Element\Template" name="blog.myblog.edit" template="Ecommage_Blog::add.phtml" />
+        <block class="Ecommage\Blog\Block\Detail" name="blog.myblog.edit" template="Ecommage_Blog::add.phtml" />
     </referenceContainer>
 </page>

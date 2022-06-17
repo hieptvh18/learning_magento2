@@ -16,6 +16,13 @@ use Magento\Framework\Api\Search\SearchCriteria;
 use Magento\Framework\Api\Search\SearchCriteriaBuilder;
 use Magento\Framework\App\RequestInterface;
 
+use Magento\Framework\UrlInterface;
+use Magento\Framework\View\Element\UiComponentFactory;
+use Magento\Framework\View\Element\UiComponent\ContextInterface;
+use Magento\Store\Model\StoreManagerInterface;
+use Magento\Ui\Component\Listing\Columns\Column;
+
+
 /**
  * Class NewsDataProvider
  *
@@ -74,7 +81,6 @@ class CustomDataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         array $meta = [],
         array $data = [],
         PoolInterface $modifiersPool = null
-
     ) {
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
         $this->request = $request;
@@ -94,15 +100,15 @@ class CustomDataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
     public function getData()
     {
         $items = $this->collection->joinAdminUserTbl();
+        $items = $this->collection->joinAdminUserTbl()->getSize() ? $items->getData() : null ;
 
         $data = [
             'totalRecords' => $this->getCollection()->getSize(),
-            'items' =>$items->getData()
+            'items' =>$items
         ];
 
         return $data;
     }
-
 
     /**
      * Add field to select

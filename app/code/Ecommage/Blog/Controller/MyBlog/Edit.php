@@ -48,6 +48,9 @@ class Edit extends Action implements HttpGetActionInterface {
         $page = $this->pageFactory->create();
         $page->getConfig()->getTitle()->set(__('Edit blog'));
 
+        $block = $page->getLayout()->getBlock('blog.myblog.edit');
+        $block->setData('dataEdit',$blogData);
+
         return $page;
     }
 

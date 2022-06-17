@@ -1,36 +1,49 @@
 <?php
+    $formData = $block->getData('dataEdit');
+    $mediaUrl = $block->_storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
 ?>
 <div class="form-blog">
     <a href="<?= $block->getUrl('blog/myblog') ?>">Your blog +</a>
-    <form action="<?= $block->getUrl('blog/action/save') ?>" class="form" method="POST" enctype="multipart/form-data" id="form-add-blog" data-mage-init='{"validation": {}}'>
+    <form action="<?= $block->getUrl('blog/action/save') ?><?= $formData ? 'id/'. $formData->getData('id') : '' ?>" class="form" method="POST" enctype="multipart/form-data" id="form-add-blog" data-mage-init='{"validation": {}}'>
         <div class="form-group">
             <label for="">Title</label>
-            <input type="text" placeholder="Enter title" name="title" id="title" class="form-control" data-validate="{'required-entry':true}">
+            <input type="text" placeholder="Enter title" value="<?= $formData ? $formData->getData('title') : '' ?>" name="title" id="title" class="form-control" data-validate="{'required-entry':true}">
             <small class="erTitleEl elErr"></small>
         </div>
         <br>
         <div class="form-group">
             <label for="">Content</label>
-            <textarea name="content" id="content" cols="30" rows="5" data-validate="{'required-entry':true}"></textarea>
+            <textarea name="content" id="content" cols="30" rows="5" data-validate="{'required-entry':true}">
+                <?= $formData ? $formData->getData('content') : '' ?>
+            </textarea>
         </div>
         <br>
         <div class="form-group">
             <label for="">Url key</label>
-            <input type="text" placeholder="Enter url" name="url_key" id="url_key" class="form-control" data-validate="{'required-entry':true}">
+            <input type="text" placeholder="Enter url" name="url_key" id="url_key" value="<?= $formData ? $formData->getData('url_key') : '' ?>" class="form-control" data-validate="{'required-entry':true}">
         </div>
         <br>
         <div class="form-group">
-            <label for="">Feature image</label>
-            <input type="file" class="form-control" name="featured_image" id="featured_image" data-validate="{'required-file':true}">
+            <label for="">Add new feature image</label>
+            <input type="file" class="form-control" name="featured_image" id="featured_image"
+                    <?php if(!$formData){ ?>
+                        data-validate="{'required-file':true}"
+                    <?php } ?>
+                >
             <img src="" id="img-preview" />
+            <?php if($formData): ?>
+                <p>Old image:</p>
+                <img src="<?= $mediaUrl.$formData->getData('featured_image') ?>" width="300px"/>
+                <input type="hidden" name="featured_image" value="<?= $formData ? $formData->getData('featured_image') : '' ?>" />
+            <?php endif;?>
         </div>
         <br>
         <div class="form-group">
             <label for="">Status</label>
             <select name="status" id="status">
-                <option value="1">Publish</option>
-                <option value="2">Draft</option>
-                <option value="3">Non-Publish</option>
+                <option value="1" <?= $formData && $formData->getData('status') == 1 ? 'selected' : '' ?>>Publish</option>
+                <option value="2" <?= $formData && $formData->getData('status') == 2 ? 'selected' : '' ?>>Draft</option>
+                <option value="3" <?= $formData && $formData->getData('status') == 3 ? 'selected' : '' ?>>Non-Publish</option>
             </select>
         </div>
         <br>
@@ -39,6 +52,7 @@
     </form>
 </div>
 
+<?php if(!$formData): ?>
 <script>
     require(["jquery",'mage/url'],function ($,urlBuilder){
         $(document).ready(function (){
@@ -82,3 +96,4 @@
     })
 
 </script>
+    <?php endif;?>

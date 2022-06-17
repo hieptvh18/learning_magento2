@@ -43,6 +43,19 @@ class Save extends Action implements HttpPostActionInterface
     {
         $formData = $this->getRequest()->getParams();
         $formFiles = $this->getRequest()->getFiles();
+
+        /*
+             * check id - edit || create*/
+        if($this->getRequest()->getParam('id')){
+            if($this->_blogFactory->create()->load($this->getRequest()->getParam('id'))){
+                $blogModel = $this->_blogFactory->create()->load($this->getRequest()->getParam('id'));
+            }else{
+                $blogModel = $this->_blogFactory->create();
+            }
+        }else{
+            $blogModel = $this->_blogFactory->create();
+        }
+
         if(isset($formFiles['featured_image']) && !empty($formFiles['featured_image']['name'])){
             try{
                 $uploaderFactory = $this->uploaderFactory->create(['fileId' => 'featured_image']);
@@ -67,25 +80,23 @@ class Save extends Action implements HttpPostActionInterface
             } catch (\Exception $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
             }
+        }
 
+        $authorId = $this->_authSession->getId();
 
-            $authorId = $this->_authSession->getId();
+        $blogModel->setData($formData);
+        $blogModel->setData('author_id',(int)$authorId);
 
-            $blogModel = $this->_blogFactory->create();
-            $blogModel->setData($formData);
-            $blogModel->setData('author_id',(int)$authorId);
+        try {
+            // Save blog && unlink old image
+            $blogModel->save();
 
-            try {
-                // Save blog
-                $blogModel->save();
+            $this->messageManager->addSuccess(__('Blog have been saved.'));
 
-                $this->messageManager->addSuccess(__('Blog have been saved.'));
+        } catch (\Exception $e) {
+            $this->messageManager->addError($e->getMessage());
+        }
 
-            } catch (\Exception $e) {
-                $this->messageManager->addError($e->getMessage());
-            }
-
-    }
         return $this->_redirect('blog/');
     }
 }

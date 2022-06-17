@@ -3,6 +3,8 @@
     <head>
         <title>Blog - Ecommage</title>
         <css src="Ecommage_Blog::css/style.css" />
+        <!-- Remove local resources -->
+<!--        <remove src="css/styles-m.css" />-->
     </head>
 
     <referenceContainer name="content" htmlClass="container-blog" htmlTag="div">

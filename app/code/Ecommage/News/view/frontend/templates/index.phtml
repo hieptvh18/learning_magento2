@@ -3,6 +3,7 @@
     $blogRand = $block->getNewsRand();
 
 ?>
+<?php echo $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('blog-cms-checkout')->toHtml();?>
 
 <div class="wrapper bg-pink p-3">
     <div class="container">

@@ -1,75 +1,12 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="checkout.root">
-            <arguments>
-                <argument name="jsLayout" xsi:type="array">
-                    <item name="components" xsi:type="array">
-                        <item name="checkout" xsi:type="array">
-                            <item name="children" xsi:type="array">
-
-<!--                                custom register newsletter-->
-                                <item name="steps" xsi:type="array">
-                                    <item name="children" xsi:type="array">
-                                        <!-- Modifying an existing step-->
-                                        <item name="shipping-step" xsi:type="array">
-                                            <item name="children" xsi:type="array">
-                                                <item name="shippingAddress" xsi:type="array">
-                                                    <item name="children" xsi:type="array">
-                                                        <item name="before-form" xsi:type="array">
-                                                            <item name="children" xsi:type="array">
-                                                                <item name="newsletter" xsi:type="array">
-                                                                    <item name="component" xsi:type="string">Ecommage_AddCmsBlockCheckout/js/view/newsletter</item>
-                                                                </item>
-                                                            </item>
-                                                        </item>
-                                                    </item>
-                                                </item>
-                                            </item>
-                                        </item>
-                                        <item name="before-shipping-method-form" xsi:type="array">
-                                            <item name="component" xsi:type="string">uiComponent</item>
-                                            <item name="displayArea" xsi:type="string">before-shipping-method-form</item>
-                                            <item name="children" xsi:type="array">
-                                                <!-- address-list-additional-addresses -->
-                                            </item>
-                                        </item>
-
-                                    </item>
-                                </item>
-
-<!--                                custom add form discount code-->
-                                <item name="sidebar" xsi:type="array">
-                                    <item name="children" xsi:type="array">
-                                        <item name="summary" xsi:type="array">
-                                            <item name="children" xsi:type="array">
-                                                <item name="summary-discount" xsi:type="array">
-                                                    <item name="component" xsi:type="string">Magento_SalesRule/js/view/payment/discount</item>
-                                                    <item name="children" xsi:type="array">
-                                                        <item name="errors" xsi:type="array">
-                                                            <item name="sortOrder" xsi:type="string">0</item>
-                                                            <item name="component" xsi:type="string">Magento_SalesRule/js/view/payment/discount-messages</item>
-                                                            <item name="displayArea" xsi:type="string">messages</item>
-                                                        </item>
-                                                    </item>
-                                                </item>
-                                            </item>
-                                        </item>
-                                    </item>
-                                </item>
-
-<!--                                disable component dicount old-->
-                                <item name="summary" xsi:type="array">
-                                    <item name="config" xsi:type="array">
-                                        <item name="componentDisabled" xsi:type="boolean">true</item>
-                                    </item>
-                                </item>
-
-                            </item>
-                        </item>
-                    </item>
-                </argument>
-            </arguments>
+        <referenceBlock name="content">
+            <block class="Magento\Cms\Block\Block" name="block_checkout_super_discount" before="checkout.root">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">block-cms-checkout</argument>
+                </arguments>
+            </block>
         </referenceBlock>
     </body>
 </page>

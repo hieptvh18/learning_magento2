@@ -18,7 +18,7 @@
             </div>
             <br>
             <small>Author: <?= $blog->getData('author_id') ?></small>
-            <h4>Relate blog:</h4>
+            <h4>BLOG RELATE:</h4>
             <div style="display: flex; column-gap: 20px;">
 <!--                render relate blog-->
                 <?php if($relateBlog->getSize()){
@@ -31,6 +31,7 @@
                         </div>
                         <p>Author: <?= $blog->getData('author_id') ?></p>
                     </div>
+
                 <?php }}else
                 echo "nothing!";?>
             </div>

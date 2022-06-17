@@ -16,15 +16,6 @@ class Add extends Template
         parent::__construct($context, $data);
     }
 
-    protected function _prepareLayout()
-    {
-        return parent::_prepareLayout();
-    }
-
-    public function test(){
-        return 'hi';
-    }
-
     /*
      * get form key*/
     public function getFormKey()

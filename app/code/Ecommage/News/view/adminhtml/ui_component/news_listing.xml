@@ -130,8 +130,8 @@
                 </item>
             </argument>
         </column>
-        <column name="featured_image">
-            <argument name="data" xsi:type="array">
+        <column name="featured_image" class="Ecommage\News\Ui\Component\Listing\Column\Thumbnail">
+            <argument name="data" xsi:type="array" >
                 <item name="config" xsi:type="array">
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
                     <item name="sortable" xsi:type="boolean">false</item>

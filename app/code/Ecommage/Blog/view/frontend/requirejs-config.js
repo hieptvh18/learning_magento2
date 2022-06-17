@@ -6,5 +6,4 @@ var config = {
         "previewjs":["jquery"]
     }
 
-
 }
