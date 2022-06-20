@@ -46,17 +46,15 @@ class Delete extends \Magento\Backend\App\Action implements HttpPostActionInterf
          * */
         $blogId = $this->getRequest()->getParam('blog_id');
 
-        $blogCollection = $this->collectionFactory->create()->addFieldToFilter('id',$blogId);
-        dd($blogCollection);
+        $blog = $this->collectionFactory->create()->addFieldToFilter('id',$blogId);
 
-        $blog = $this->_blogFactory->create()->load($blogId);
         if(!$blog && $blogId){
-            $this->messageManager->addError(__('aaa'));
+            $this->messageManager->addError(__('not find blog delete!'));
             return $this->_redirect('news/news');
         }
-        $blog->delete();
+        $blog->getFirstItem()->delete();
 
-        $this->messageManager->addSuccess(__('bbb'));
+        $this->messageManager->addSuccess(__('delete success!'));
 
         return $this->_redirect('news/news');
     }

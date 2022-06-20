@@ -27,7 +27,7 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
         $collection = $this->join([
             'user'=>$adminUserTbl
         ], 'main_table.author_id = user.user_id',
-            ['author_id'=>'user.firstname','last'=>'user.lastname']
+            ['firstname'=>'user.firstname','lastname'=>'user.lastname']
         );
 
         return $collection;

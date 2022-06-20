@@ -4,8 +4,4 @@
         <title>News override</title>
 
     </head>
-
-    <referenceContainer name="content">
-        <block class="Ecommage\News\Block\Index" name="news.index.content" />
-    </referenceContainer>
 </page>

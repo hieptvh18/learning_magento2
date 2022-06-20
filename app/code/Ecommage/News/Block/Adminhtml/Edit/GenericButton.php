@@ -5,13 +5,16 @@
  */
 namespace Ecommage\News\Block\Adminhtml\Edit;
 
+use Magento\Cms\Api\PageRepositoryInterface;
 use Magento\Customer\Controller\RegistryConstants;
+use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 
 /**
  * Class GenericButton
  * @package Magento\Customer\Block\Adminhtml\Edit
  */
-class GenericButton
+class GenericButton implements ButtonProviderInterface
 {
     /**
      * Url Builder
@@ -26,7 +29,8 @@ class GenericButton
      * @var \Magento\Framework\Registry
      */
     protected $registry;
-
+    protected $pageRepository;
+    protected $context;
     /**
      * Constructor
      *
@@ -35,8 +39,11 @@ class GenericButton
      */
     public function __construct(
         \Magento\Backend\Block\Widget\Context $context,
-        \Magento\Framework\Registry $registry
+        \Magento\Framework\Registry $registry,
+        PageRepositoryInterface $pageRepository
     ) {
+        $this->context = $context;
+        $this->pageRepository  = $pageRepository;
         $this->urlBuilder = $context->getUrlBuilder();
         $this->registry = $registry;
     }
@@ -61,5 +68,21 @@ class GenericButton
     public function getUrl($route = '', $params = [])
     {
         return $this->urlBuilder->getUrl($route, $params);
+    }
+
+    public function getButtonData()
+    {
+
+    }
+
+    public function getPageId()
+    {
+        try {
+            return $this->pageRepository->getById(
+                $this->context->getRequest()->getParam('blog_id')
+            )->getId();
+        } catch (NoSuchEntityException $e) {
+        }
+        return null;
     }
 }

@@ -10,6 +10,7 @@
     </argument>
     <settings>
         <buttons>
+            <button name="generic" class="Ecommage\News\Block\Adminhtml\Edit\GenericButton"/>
             <button name="save" class="Ecommage\News\Block\Adminhtml\Edit\SaveButton"/>
             <button name="reset" class="Ecommage\News\Block\Adminhtml\Edit\ResetButton"/>
             <button name="back" class="Ecommage\News\Block\Adminhtml\Edit\BackButton"/>

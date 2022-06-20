@@ -1,23 +1,23 @@
 <listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <argument name="data" xsi:type="array">
         <item name="js_config" xsi:type="array">
-            <item name="provider" xsi:type="string">news_listing.news_listing_data_source</item>
-            <item name="deps" xsi:type="string">news_listing.news_listing_data_source</item>
+            <item name="provider" xsi:type="string">blog_listing.blog_listing_data_source</item>
+            <item name="deps" xsi:type="string">blog_listing.blog_listing_data_source</item>
         </item>
-        <item name="spinner" xsi:type="string">news_columns</item>
+        <item name="spinner" xsi:type="string">blog_columns</item>
         <item name="buttons" xsi:type="array">
             <item name="add" xsi:type="array">
                 <item name="name" xsi:type="string">add</item>
-                <item name="label" xsi:type="string" translate="true">Add New News</item>
+                <item name="label" xsi:type="string" translate="true">Add New Blog</item>
                 <item name="class" xsi:type="string">primary</item>
                 <item name="url" xsi:type="string">*/*/create</item>
             </item>
         </item>
     </argument>
-    <dataSource name="news_listing_data_source">
+    <dataSource name="blog_listing_data_source">
         <argument name="dataProvider" xsi:type="configurableObject">
-            <argument name="class" xsi:type="string">Ecommage\News\Ui\Component\Listing\CustomDataProvider</argument>
-            <argument name="name" xsi:type="string">news_listing_data_source</argument>
+            <argument name="class" xsi:type="string">Ecommage\Blog\Ui\Component\Listing\CustomDataProvider</argument>
+            <argument name="name" xsi:type="string">blog_listing_data_source</argument>
             <argument name="primaryFieldName" xsi:type="string">id</argument>
             <argument name="requestFieldName" xsi:type="string">id</argument>
             <argument name="data" xsi:type="array">
@@ -46,7 +46,7 @@
                     <item name="config" xsi:type="array">
                         <item name="type" xsi:type="string">delete</item>
                         <item name="label" xsi:type="string" translate="true">Delete</item>
-                        <item name="url" xsi:type="url" path="news/news/delete"/>
+                        <item name="url" xsi:type="url" path="blog/blog/delete"/>
                         <item name="confirm" xsi:type="array">
                             <item name="title" xsi:type="string" translate="true">Delete Post</item>
                             <item name="message" xsi:type="string" translate="true">Are you sure you wan't to delete selected items?</item>
@@ -55,23 +55,6 @@
                 </argument>
             </action>
 
-<!--            <action name="change_status">-->
-<!--                <argument name="data" xsi:type="array">-->
-<!--                    <item name="config" xsi:type="array">-->
-<!--                        <item name="type" xsi:type="string">change_status</item>-->
-<!--                        <item name="label" xsi:type="string" translate="true">Change Status</item>-->
-<!--                    </item>-->
-<!--                </argument>-->
-<!--                <argument name="actions" xsi:type="configurableObject">-->
-<!--                    <argument name="class" xsi:type="string">Ecommage\Blog\Ui\Component\MassAction\Status\Options</argument>-->
-<!--                    <argument name="data" xsi:type="array">-->
-<!--                        <item name="confirm" xsi:type="array">-->
-<!--                            <item name="title" xsi:type="string" translate="true">Change Status</item>-->
-<!--                            <item name="message" xsi:type="string" translate="true">Are you sure to change status for selected feed(s)?</item>-->
-<!--                        </item>-->
-<!--                    </argument>-->
-<!--                </argument>-->
-<!--            </action>-->
         </massaction>
 
 <!--        paginate-->
@@ -83,7 +66,7 @@
         <columnsControls name="columns_controls" />
     </listingToolbar>
 
-    <columns name="news_columns">
+    <columns name="blog_columns">
         <selectionsColumn name="ids">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -130,7 +113,7 @@
                 </item>
             </argument>
         </column>
-        <column name="featured_image" class="Ecommage\News\Ui\Component\Listing\Column\Thumbnail">
+        <column name="featured_image" class="Ecommage\Blog\Ui\Component\Listing\Column\Thumbnail">
             <argument name="data" xsi:type="array" >
                 <item name="config" xsi:type="array">
                     <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/thumbnail</item>
@@ -141,7 +124,7 @@
                 </item>
             </argument>
         </column>
-        <column name="author_id" class="Ecommage\News\Ui\Component\Listing\Column\AuthorFullName">
+        <column name="author_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="filter" xsi:type="string">text</item>
@@ -157,7 +140,7 @@
         </column>
         <column name="status">
             <argument name="data" xsi:type="array">
-                <item name="options" xsi:type="object">Ecommage\News\Model\Config\Status</item>
+                <item name="options" xsi:type="object">Ecommage\Blog\Model\Config\Status</item>
                 <item name="config" xsi:type="array">
                     <item name="sortOrder" xsi:type="number">60</item>
                     <item name="filter" xsi:type="string">select</item>
@@ -191,7 +174,7 @@
             </argument>
         </column>
 
-        <actionsColumn name="actions" class = "Ecommage\News\Ui\Component\Listing\Column\Action">
+        <actionsColumn name="actions" class = "Ecommage\Blog\Ui\Component\Listing\Column\Action">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="resizeEnabled" xsi:type="boolean">true</item>

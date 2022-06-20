@@ -7,6 +7,7 @@ namespace Ecommage\News\Block\Adminhtml\Edit;
 
 use Magento\Customer\Api\AccountManagementInterface;
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
+use Magento\Cms\Api\PageRepositoryInterface;
 
 /**
  * Class SaveButton
@@ -18,7 +19,7 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
      * @var AccountManagementInterface
      */
     protected $customerAccountManagement;
-
+    protected $pageRepository;
     /**
      * Constructor
      *
@@ -29,9 +30,10 @@ class SaveButton extends GenericButton implements ButtonProviderInterface
     public function __construct(
         \Magento\Backend\Block\Widget\Context $context,
         \Magento\Framework\Registry $registry,
-        AccountManagementInterface $customerAccountManagement
+        AccountManagementInterface $customerAccountManagement,
+        PageRepositoryInterface $pageRepository
     ) {
-        parent::__construct($context, $registry);
+        parent::__construct($context, $registry,$pageRepository);
         $this->customerAccountManagement = $customerAccountManagement;
     }
 

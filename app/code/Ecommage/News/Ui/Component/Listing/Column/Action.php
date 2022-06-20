@@ -11,7 +11,7 @@ class Action extends Column
 {
     /** Url path */
     const ROW_EDIT_URL = 'news/news/edit';
-    const CMS_URL_PATH_DELETE = 'news/news/delete1';
+    const CMS_URL_PATH_DELETE = 'news/action/delete';
 
     /** @var UrlInterface */
     protected $_urlBuilder;

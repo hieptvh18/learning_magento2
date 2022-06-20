@@ -1,15 +1,21 @@
 <?php
 namespace Ecommage\News\Block\Adminhtml\Edit;
 
-class CustomButton extends \Magento\Catalog\Block\Adminhtml\Product\Edit\Button\Generic
+class CustomButton2 extends \Ecommage\News\Block\Adminhtml\Edit\GenericButton
 {
     public function getButtonData()
     {
-        return [
-            'label' => __('Custom Button1'),
-            'class' => 'action-secondary',
-            'on_click' => 'alert("1")',
-            'sort_order' => 10
-        ];
+
+        $data = [];
+        if($this->getPageId()){
+            $data = [
+                'label' => __('Custom Button Delete'),
+                'class' => 'action-secondary',
+                'on_click' => 'alert("delete page")',
+                'sort_order' => 10
+            ];
+        }
+
+        return $data;
     }
 }

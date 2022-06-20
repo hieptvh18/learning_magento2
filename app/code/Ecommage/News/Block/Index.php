@@ -13,6 +13,7 @@ class Index extends Template
     protected $_collection;
     protected $_helper;
     protected $_template = 'Ecommage_News::index.phtml';
+    public $label = 'News';
 
     public function __construct(Template\Context $context, array $data = [],
                                 \Ecommage\News\Model\NewsFactory $newsFactory ,

@@ -1,15 +1,24 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <title>News </title>
-
         <!-- nhung assets o head -->
         <css src="Ecommage_News::css/style.css"/>
         <css src="css/style.css"/>
         <script src="Ecommage_News::js/script.js"/>
     </head>
 
+    <referenceContainer name="columns">
+        <container name="div.sidebar.additional" htmlTag="div" htmlClass="sidebar sidebar-additional" after="div.sidebar.main">
+            <block class="Magento\Framework\View\Element\Template" name="sidebar.news" template="Ecommage_News::menu-custom.phtml" />
+        </container>
+    </referenceContainer>
+
     <referenceContainer name="content">
-        <block class="Ecommage\News\Block\Index" name="news.index.content" />
+        <block class="Ecommage\News\Block\Index" name="news.index.content" >
+            <arguments>
+                <argument name="label" xsi:type="string">New Block Label</argument>
+            </arguments>
+        </block>
     </referenceContainer>
 </page>
