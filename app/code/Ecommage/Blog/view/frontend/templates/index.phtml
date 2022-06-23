@@ -11,7 +11,7 @@
             <li>
                 <a href="<?= $this->getUrl('blog/detail/index/id/'.$blog->getData('id')) ?>" >
                     <?= $blog->getData('title') ?>
-                    <span> - Author: <?= $blog->getData('author_id') ?></span>
+                    <span> - Author: <?= $blog->getData('firstname') ?></span>
                 </a>
             </li>
         <?php }}else

@@ -4,7 +4,7 @@
 ?>
 <div class="form-blog">
     <a href="<?= $block->getUrl('blog/myblog') ?>">Your blog +</a>
-    <form action="<?= $block->getUrl('blog/action/save') ?><?= $formData ? 'id/'. $formData->getData('id') : '' ?>" class="form" method="POST" enctype="multipart/form-data" id="form-add-blog" data-mage-init='{"validation": {}}'>
+    <form action="<?= $block->getUrl('blog/action/save') ?><?= $formData ? 'id/'. $formData->getData('id') : '' ?>" class="form" method="POST" enctype="multipart/form-data" name="form-add-blog" id="form-add-blog" data-mage-init='{"validation": {}}'>
         <div class="form-group">
             <label for="">Title</label>
             <input type="text" placeholder="Enter title" value="<?= $formData ? $formData->getData('title') : '' ?>" name="title" id="title" class="form-control" data-validate="{'required-entry':true}">
@@ -52,48 +52,28 @@
     </form>
 </div>
 
-<?php if(!$formData): ?>
 <script>
-    require(["jquery",'mage/url'],function ($,urlBuilder){
-        $(document).ready(function (){
+    require(['jquery', 'previewImg'], function($, previewImg) {
+        previewImg();
+    });
+</script>
 
-            $('#form-add-blog').mage('validation',{
-                submitHandler:function(form){
-
+<?php if(!$formData): ?>
+    <script>
+        require(['jquery', 'validateAjax'], function($, validateAjax) {
                     if($('input[name="content"]').val() == '' || $('input[name="url_key"]').val() ){
                         $('.erTitleEl').html('');
                         $('input[name="title"]').css('border','');
                     }
 
-                    const url = urlBuilder.build('blog/ajax/validate');
-                    const title = $('input[name="title"]').val();
-                        $.ajax({
-                            //    gui form data -> controller
-                            url: url,
-                            type:'POST',
-                            dataType :'json',
-                            data:{
-                                title:title
-                            },
-                            success:function(res){
+                    $('#form-add-blog').submit(function(e){
+                        e.preventDefault();
+                        if($('input[name="title"]').val() != ''){
+                            //    call ajax
+                            validateAjax();
+                        }
+                    })
+        });
 
-                                if(res.status == 'exist'){
-                                    $('.erTitleEl').html('Title existed! please again!');
-                                    $('input[name="title"]').css('border','solid red');
-                                }else{
-                                    // not exist -> submit save blog
-                                   form.submit();
-                                }
-                            },
-                            error(err){
-                                console.log(err)
-                            }
-                        })
-                }
-            })
-
-        })
-    })
-
-</script>
+    </script>
     <?php endif;?>

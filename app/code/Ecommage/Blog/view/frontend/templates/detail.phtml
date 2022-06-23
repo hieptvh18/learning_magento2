@@ -19,12 +19,12 @@
             <br>
             <small>Author: <?= $blog->getData('author_id') ?></small>
             <h4>BLOG RELATE:</h4>
-            <div style="display: flex; column-gap: 20px;">
+            <div class="slick-slider" style=" column-gap: 20px;">
 <!--                render relate blog-->
                 <?php if($relateBlog->getSize()){
                     foreach($relateBlog as $blog){?>
 
-                    <div style="text-align: center; width: 20%; background:#fff;">
+                    <div class="item" style="text-align: center;background:#fff;">
                         <h6><a href="<?= $block->getUrl('blog/detail/index/id/'.$blog->getData('id')) ?>"><?= $blog->getData('title') ?></a></h6>
                         <div>
                             <img src="<?= $mediaUrl.$blog->getData('featured_image') ?>" width="80px"/>

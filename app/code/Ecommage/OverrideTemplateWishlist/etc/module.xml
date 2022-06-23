@@ -3,6 +3,8 @@
     <module name="Ecommage_OverrideTemplateWishlist">
         <sequence>
             <module name="Magento_Wishlist"/>
+            <module name="Magento_Checkout"/>
+            <module name="Magento_Catalog"/>
         </sequence>
     </module>
 </config>

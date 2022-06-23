@@ -3,6 +3,7 @@
     <head>
         <title>Blog - detail</title>
         <css src="Ecommage_Blog::css/style.css" />
+        <script src="Ecommage_Blog::js/slick-slider.js" async="async" />
     </head>
 
     <referenceContainer name="content">

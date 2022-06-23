@@ -18,7 +18,9 @@ $viewModel = $block->getViewModel();
       method="post"
       data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
       data-mage-init='{"validation":{}}'>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A inventore ipsam, iste necessitatibus quis sed? Architecto ducimus fugit ipsam nobis odio provident qui quidem, quod rem vero! Exercitationem, incidunt, ipsum.
+    <p style="color: red;">
+        override template with module success
+    </p>
     <fieldset class="fieldset">
         <legend class="legend"><span><?= $block->escapeHtml(__('Write Us')) ?></span></legend><br />
         <div class="field note no-label">

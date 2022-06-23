@@ -17,7 +17,9 @@ class Index extends Template
     }
 
     public function getBlogList(){
-        $data = $this->collection->joinCustomerTbl()->addFilter('status',1);
+        $data = $this->collection->joinAdminUserTbl()
+            ->addFilter('status',1)
+        ->setOrder('created_at','desc');
         return $data;
     }
 
