@@ -4,5 +4,8 @@
         <job instance="Ecommage\Blog\Cron\Execute" method="execute" name="ecommage_blog_cron">
             <schedule>0 18 * * 6</schedule>
         </job>
+        <job instance="Ecommage\Blog\Cron\SignupToReceiveNews" method="execute" name="ecommage_blog_sendmail_cron">
+            <schedule>0 18 * * *</schedule>
+        </job>
     </group>
 </config>

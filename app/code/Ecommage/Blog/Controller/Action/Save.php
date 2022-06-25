@@ -47,8 +47,9 @@ class Save extends Action implements HttpPostActionInterface
         /*
              * check id - edit || create*/
         if($this->getRequest()->getParam('id')){
-            if($this->_blogFactory->create()->load($this->getRequest()->getParam('id'))){
-                $blogModel = $this->_blogFactory->create()->load($this->getRequest()->getParam('id'));
+            $blog = $this->_blogFactory->create()->load($this->getRequest()->getParam('id'));
+            if($blog){
+                $blogModel = $blog;
             }else{
                 $blogModel = $this->_blogFactory->create();
             }
@@ -84,6 +85,7 @@ class Save extends Action implements HttpPostActionInterface
 
         $authorId = $this->_authSession->getId();
 
+//        set data save
         $blogModel->setData($formData);
         $blogModel->setData('author_id',(int)$authorId);
 

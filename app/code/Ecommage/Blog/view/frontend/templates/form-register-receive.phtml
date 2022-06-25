@@ -1,0 +1,13 @@
+
+<div class="form-register">
+    <form action="<?= $block->getUrl('blog/action/saveregister') ?>" class="form" method="POST" id="form-register-receive" data-mage-init='{"validation": {}}'>
+        <div class="form-group">
+            <label for="">Your email</label>
+            <input type="text" placeholder="Enter email" name="email" id="email" class="form-control"
+                   data-validate="{'required-entry':true,'validate-email':true}">
+        </div>
+<!--        <input type="hidden" name="form_key" value="--><?//= $block->getFormKey() ?><!--"/>-->
+        <button type="submit" id="btn-add-blog">Submit</button>
+    </form>
+</div>
+

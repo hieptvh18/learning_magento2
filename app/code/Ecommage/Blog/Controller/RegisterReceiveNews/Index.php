@@ -1,24 +1,25 @@
 <?php
 
-namespace Ecommage\OrderSendMail\Controller\Order;
+namespace Ecommage\Blog\Controller\RegisterReceiveNews;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
+use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action{
 
-    protected $_pageFactory;
+    protected $pageFactory;
 
     public function __construct(Context $context,
-    PageFactory $pageFactory)
+                                PageFactory $pageFactory)
     {
-        $this->_pageFactory = $pageFactory;
+        $this->pageFactory = $pageFactory;
         parent::__construct($context);
     }
 
     public function execute()
     {
-        return $this->_pageFactory->create();
+        return $this->pageFactory->create();
     }
 }

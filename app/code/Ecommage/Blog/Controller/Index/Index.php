@@ -4,6 +4,8 @@ namespace Ecommage\Blog\Controller\Index;
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\App\Action\HttpGetActionInterface;
+use Ecommage\Blog\Helper\Data;
+use Psr\Log\LoggerInterface;
 
 class Index extends Action implements HttpGetActionInterface {
 
@@ -15,8 +17,6 @@ class Index extends Action implements HttpGetActionInterface {
                                 \Magento\Customer\Model\Session $_authSession,
                                 \Magento\Customer\Model\Url $customerUrl,
                                 \Magento\Framework\View\Result\PageFactory $_pageFactory
-
-
     )
     {
         $this->pageFactory=  $_pageFactory;
@@ -27,6 +27,9 @@ class Index extends Action implements HttpGetActionInterface {
 
     public function execute()
     {
+//        $this->_helper->sendEmail('hipbu18@gmail.com');
+//        die;
+
         /*
          * Check login -> access post */
         if(!$this->_authSession->isLoggedIn()){

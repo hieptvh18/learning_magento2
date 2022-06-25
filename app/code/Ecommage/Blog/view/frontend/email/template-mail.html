@@ -1,0 +1,25 @@
+<!--@subject {{trans "Did you forget something?"}} @-->
+{{template config_path="design/email/header_template"}}
+<h1 style="color: red;">{{var msg}}</h1>
+<table style="float:left; margin-right: 10px" class="fue-abc-items">
+    <tr>
+        <td>
+            <div class="greeting">Hi {{var customer.email}},</div>
+            <!-- Custom Image with your email-->
+            <img src="{{view url='Ecommage_Blog::images/customimage.png'}}"/>
+            <div>
+                {{trans "I’m from %store_name. " store_name=$store.getFrontendName()}},
+                {{var msg_content}}
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div style="font-size: 9px;text-align: center;">No longer want to receive these email ? You can
+                <a href="{{var unsubscribeLink}}" style="text-decoration-line: underline;font-weight: 400;">unsubscribe
+                    here</a>
+            </div>
+        </td>
+    </tr>
+</table>
+{{template config_path="design/email/footer_template"}}

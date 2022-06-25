@@ -7,7 +7,6 @@ class Execute {
 
     protected $logger;
 
-
     public function __construct(
         LoggerInterface $logger
     )

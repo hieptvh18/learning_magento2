@@ -1,0 +1,17 @@
+<config
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="order_item2"
+              label="Order Cart Item 2"
+              file="template-mail.html"
+              type="html"
+              module="Ecommage_Blog"
+              area="frontend"
+    />
+    <template id="order_cancel"
+              label="Order cancel"
+              file="mail-cancel-order.html"
+              type="html"
+              module="Ecommage_Blog"
+              area="adminhtml"
+    />
+</config>

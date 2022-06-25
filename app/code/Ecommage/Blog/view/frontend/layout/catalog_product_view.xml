@@ -10,5 +10,11 @@
                 <block class="Ecommage\Blog\Block\SliderBlog" name="slider_blog"/>
             </container>
         </referenceContainer>
+
+        <referenceContainer name="content">
+            <container name="product.slider.blog" htmlTag="div" htmlClass="product slider blog" after="product.info.details">
+                <block class="Magento\Framework\View\Element\Template" name="slider_blog1" template="Ecommage_Blog::view.phtml"/>
+            </container>
+        </referenceContainer>
     </body>
 </page>
