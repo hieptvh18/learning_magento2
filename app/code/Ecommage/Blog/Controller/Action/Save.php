@@ -46,15 +46,16 @@ class Save extends Action implements HttpPostActionInterface
 
         /*
              * check id - edit || create*/
+        $blog = $this->_blogFactory->create();
         if($this->getRequest()->getParam('id')){
-            $blog = $this->_blogFactory->create()->load($this->getRequest()->getParam('id'));
+            $blog = $blog->load($this->getRequest()->getParam('id'));
             if($blog){
                 $blogModel = $blog;
             }else{
-                $blogModel = $this->_blogFactory->create();
+                $blogModel = $blog;
             }
         }else{
-            $blogModel = $this->_blogFactory->create();
+            $blogModel = $blog;
         }
 
         if(isset($formFiles['featured_image']) && !empty($formFiles['featured_image']['name'])){
@@ -85,11 +86,13 @@ class Save extends Action implements HttpPostActionInterface
 
         $authorId = $this->_authSession->getId();
 
-//        set data save
+        // set data save
         $blogModel->setData($formData);
         $blogModel->setData('author_id',(int)$authorId);
 
         try {
+            //   before save -> add prefix name is ecommage using event + observer
+            $this->_eventManager->dispatch('ecommage_post_before_save',array('postData'=>$blog));
             // Save blog && unlink old image
             $blogModel->save();
 
